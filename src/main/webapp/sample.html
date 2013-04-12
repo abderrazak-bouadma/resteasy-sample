@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html ng-app="sampleApp">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>Welcome to PARAPHEUR-WS Show Case</title>
+		<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
+		<script type="text/javascript"	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.5/angular.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.5/angular-resource.min.js"></script>
+		<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+		<script type="text/javascript" src="js/sample.js"></script>
+		<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>		
+	</head>
+<body ng-controller="SampleCtrl">
+	
+	<h1>{{message}}</h1>
+	
+	
+	<div class="container">
+		<form class="form-horizontal">
+		  <div class="control-group">
+		    <label class="control-label" for="inputTitle">Title</label>
+		    <div class="controls">
+		      <input type="text" id="inputTitle" placeholder="Title" ng-model="title">
+		    </div>
+		  </div>
+		  <div class="control-group">
+		    <label class="control-label" for="inputDescription">Password</label>
+		    <div class="controls">
+		      <input type="password" id="inputDescription" placeholder="Description" ng-model="description">
+		    </div>
+		  </div>
+		  <div class="control-group">
+		    <label class="control-label" for="inputDate">Date</label>
+		    <div class="controls">
+		      <input type="Date" id="inputDate" placeholder="Date" ng-model="date">
+		    </div>
+		  </div>
+		  <div class="control-group">
+		    <div class="controls">
+		      <button type="button" class="btn" ng-click="push()">Submit</button>
+		    </div>
+		  </div>
+		</form>
+
+		<table class="table table-striped">
+			<tr>
+				<th>title</th>
+				<th>description</th>
+				<th>date</th>
+			</tr>
+			<tr ng-repeat="item in items">
+				<td>{{item.id}}</td>
+				<td>{{item.title}}</td>
+				<td>{{item.date}}</td>
+			</tr>
+		</table>
+	</div>
+</body>
+</html>

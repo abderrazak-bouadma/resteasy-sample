@@ -1,0 +1,95 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html ng-app="appModule">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>Welcome to PARAPHEUR-WS Show Case</title>
+		<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
+		<script type="text/javascript"	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.5/angular.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.5/angular-resource.min.js"></script>
+		<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+		<script type="text/javascript" src="js/app.js"></script>
+		<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>		
+	</head>
+<body ng-controller="appCtrl">
+	<header>
+		<div class="container">
+			<h1>{{mainTitle}}</h1>
+			<p class="lead">{{subTitle}}</p>
+		</div>
+	</header>
+	<div class="container">
+		<div class="row">
+			<div class="span3 bs-docs-sidebar">
+				<ul class="nav nav-list bs-docs-sidenav affix-top">
+					<li ng-repeat="item in documents">
+						<input type="hidden" value="{{item.id}}">
+						<button type="button" ng-click="load(item)">{{item.filename}}</button>
+					</li>					
+				</ul>
+			</div>
+			<div class="span9"> 
+				<section id="link1">
+					<div class="page-header">
+						<h1>{{documentName}}</h1>
+					</div>
+					<h2>{{documentlabel}}</h2>
+					<!-- content -->
+					<div class="container" id="container"></div>
+					
+					<!--notes-->
+					<div>
+						<p>Notes</p>
+						<ul class="nav nav-list bs-docs-sidenav affix-top">
+							<li ng-repeat="note in notes">
+								<div>
+									<h5>{{note.author}}</h5>
+									<p>{{note.message}}</p>
+									<span>{{note.date}}</span>
+								</div>
+							</li>					
+						</ul>
+					</div>
+
+					<!--metas-->
+					<div>
+						<p>Metas</p>
+						<ul class="nav nav-list bs-docs-sidenav affix-top">
+							<li ng-repeat="meta in metas">
+								<div>
+									<h5>{{meta.name}}</h5>
+									<p>{{meta.value}}</p>
+								</div>
+							</li>					
+						</ul>
+					</div>
+
+					<!--attachments-->
+					<div>
+						<p>Attachments</p>
+						<ul class="nav nav-list bs-docs-sidenav affix-top">
+							<li ng-repeat="attachment in attachments">
+								<div>
+									<a ng-href="getAttachmentContent(attachment.id)">{{attachment.filename}}</a>
+								</div>
+							</li>					
+						</ul>
+					</div>
+
+					<!--Actions-->
+					<div>
+						<p>Actions</p>
+						<ul class="nav nav-list bs-docs-sidenav affix-top">
+							<li ng-repeat="action in actions">
+								<div>
+									<h5>{{action.name}}</h5>
+								</div>
+							</li>					
+						</ul>
+					</div>
+				</section>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>
